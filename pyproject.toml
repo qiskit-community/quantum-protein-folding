@@ -1,0 +1,56 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "protein_folding"
+version = "0.0.0"
+description = "Code for the paper 'Resource-efficient quantum algorithm for protein folding.'"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+requires-python = ">=3.8"
+
+dependencies = [
+    "qiskit-aer==0.12",
+    "qiskit-experiments==0.5.2",
+    "qiskit-ibm-runtime==0.9.3",
+    "qiskit-ibmq-provider==0.20.2",
+    "qiskit-nature==0.5",
+    "qiskit-terra==0.23.3",
+    "qiskit[visualization]==0.42.1",
+    "qiskit_sphinx_theme~=1.16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black[jupyter]~=23.1",
+    "coverage",
+    "ddt~=1.5",
+    "importlib_metadata",
+    "ipywidgets",
+    "mypy==1.3.0",
+    "jupyter-sphinx",
+    "nbmake",
+    "nbsphinx",
+    "pylint==2.14",
+    "pytest==7.1",
+    "sphinx-autodoc-typehints",
+    "tqdm>=4.59.0",
+]
+
+[tool.autoflake]
+remove-unused-variables = true
+imports = ["qiskit", "qiskit_aer", "qiskit_nature", "qiskit_ibm_runtime"]
